@@ -148,7 +148,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
+            Stable Diffusion generates photorealistic results on a wide variety of image generation tasks such as text-to-image, inpainting, and pose-guided generation. However, the efficiency of the model and the pipeline becomes an issue for real-time demanding applications. In this work, we take a very simple yet surprisingly effective way of speeding up the stable diffusion model: skip channels in the UNet structure that are less important for the generation. We design a learnable network component that modulate the feature channels and turn off unimportant ones. Experiments show that our model can achieve similar image generation quality as the original stable diffusion model but with a fraction of the running cost.
           </p>
         </div>
       </div>
