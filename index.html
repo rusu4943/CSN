@@ -180,50 +180,39 @@
       <div class="column is-four-fifths">
         <div class="content has-text-centered">
           <p>
-            <input id="valR" type="range" min="5" max="40" value="5" step="5" oninput="showVal(this.value)" onchange="showVal(this.value)" />
-            <span id="range">5</span>
+            <input id="valR" type="range" min="0" max="7" value="0" step="1" oninput="showVal(this.value)" onchange="showVal(this.value)" />
+            <span id="range">5G</span>
             <br />
             <div class="columns is-centered">
-              <div class="column">
+              <div class="column has-text-centered">
                 <p>Random Pruning</p>
                 <img id="img1" src="static/images/SDM/Random_pruned_SDM/5.png" style="width: 200px; height: 200px; object-fit: cover;">
               </div>
-              <div class="column">
+              <div class="column has-text-centered">
                 <p>Magnitude Pruning</p>
                 <img id="img2" src="static/images/SDM/Magnitude_SDM/5.png" style="width: 200px; height: 200px; object-fit: cover;">
               </div>
-              <div class="column">
+              <div class="column has-text-centered">
                 <p>Taylor Pruning</p>
                 <img id="img3" src="static/images/SDM/Taylor_SDM/5.png" style="width: 200px; height: 200px; object-fit: cover;">
               </div>
-              <div class="column">
+              <div class="column has-text-centered">
                 <p>Diff Pruning</p>
                 <img id="img4" src="static/images/SDM/Diff-pruning_SDM/5.png" style="width: 200px; height: 200px; object-fit: cover;">
               </div>
-              <div class="column">
+              <div class="column has-text-centered">
                 <p>CSN</p>
                 <img id="img5" src="static/images/SDM/Skip-net_SDM/5.png" style="width: 200px; height: 200px; object-fit: cover;">
               </div>
             </div>
           
             <script>
-              // Preload images
-              var preloadedImages = {};
-              var folders = ["Random_pruned_SDM", "Magnitude_SDM", "Taylor_SDM", "Diff-pruning_SDM", "Skip-net_SDM"];
-              var values = [5, 10, 15, 20, 25, 30, 35, 40];
-              
-              folders.forEach(function(folder) {
-                preloadedImages[folder] = {};
-                values.forEach(function(value) {
-                  var img = new Image();
-                  img.src = "static/images/SDM/" + folder + "/" + value + ".png";
-                  preloadedImages[folder][value] = img;
-                });
-              });
+              var valuesList = [5, 17, 22, 45, 50, 61, 65, 85];
 
-              function showVal(newVal) {
-                document.getElementById("range").innerHTML = newVal;
-                updateImages(newVal);
+              function showVal(index) {
+                var selectedValue = valuesList[index];
+                document.getElementById("range").innerHTML = 'Pruning ' + selectedValue + 'G';
+                updateImages(selectedValue);
               }
 
               function updateImages(value) {
@@ -234,9 +223,23 @@
                 document.getElementById("img5").src = preloadedImages["Skip-net_SDM"][value].src;
               }
 
+              // Preload images
+              var preloadedImages = {};
+              var folders = ["Random_pruned_SDM", "Magnitude_SDM", "Taylor_SDM", "Diff-pruning_SDM", "Skip-net_SDM"];
+              var preloadValues = [5, 17, 22, 45, 50, 61, 65, 85];
+              
+              folders.forEach(function(folder) {
+                preloadedImages[folder] = {};
+                preloadValues.forEach(function(value) {
+                  var img = new Image();
+                  img.src = "static/images/SDM/" + folder + "/" + value + ".png";
+                  preloadedImages[folder][value] = img;
+                });
+              });
+
               // Initialize the images on page load
               window.onload = function() {
-                updateImages(5);
+                showVal(0);
               }
             </script>
           </p>
