@@ -180,7 +180,7 @@
       <div class="column is-four-fifths">
         <div class="content has-text-justified">
           <p>
-            <input id="valR" type="range" min="5" max="50" value="5" step="5" oninput="showVal(this.value)" onchange="showVal(this.value)" />
+            <input id="valR" type="range" min="5" max="40" value="5" step="5" oninput="showVal(this.value)" onchange="showVal(this.value)" />
             <span id="range">5</span>
             <br />
             <div class="columns is-centered">
@@ -210,7 +210,7 @@
               // Preload images
               var preloadedImages = {};
               var folders = ["Random_pruned_SDM", "Magnitude_SDM", "Taylor_SDM", "Diff-pruning_SDM", "Skip-net_SDM"];
-              var values = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50];
+              var values = [5, 10, 15, 20, 25, 30, 35, 40];
               
               folders.forEach(function(folder) {
                 preloadedImages[folder] = {};
