@@ -445,6 +445,100 @@
   </div>
 </section>
 
+
+
+
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="content has-text-centered">
+          <h3>Pruning Instaflow with 1 Step Inference</h3>
+          <p>
+            <input id="valR_Instaflow" type="range" min="0" max="7" value="0" step="1" oninput="showVal_Instaflow(this.value)" onchange="showVal_Instaflow(this.value)" />
+            <span id="range_Instaflow">Pruning 5G</span>
+            <br />
+            <div class="columns is-centered">
+              <div class="column has-text-centered">
+                <p>w/o Pruning</p>
+                <img id="Instaflow_imgOrg" src="static/images/Instaflow/org.png" style="width: 200px; height: 200px; object-fit: cover;">
+              </div>
+              <div class="column has-text-centered">
+                <p>Random</p>
+                <img id="Instaflow_img1" src="static/images/Instaflow/Random/5.png" style="width: 200px; height: 200px; object-fit: cover;">
+              </div>
+              <div class="column has-text-centered">
+                <p>Magnitude</p>
+                <img id="Instaflow_img2" src="static/images/Instaflow/Magnitude/5.png" style="width: 200px; height: 200px; object-fit: cover;">
+              </div>
+              <div class="column has-text-centered">
+                <p>Taylor</p>
+                <img id="Instaflow_img3" src="static/images/Instaflow/Taylor/5.png" style="width: 200px; height: 200px; object-fit: cover;">
+              </div>
+              <div class="column has-text-centered">
+                <p>Diff</p>
+                <img id="Instaflow_img4" src="static/images/Instaflow/Diff-pruning/5.png" style="width: 200px; height: 200px; object-fit: cover;">
+              </div>
+              <div class="column has-text-centered">
+                <p>CSN</p>
+                <img id="Instaflow_img5" src="static/images/Instaflow/Skip-net/5.png" style="width: 200px; height: 200px; object-fit: cover;">
+              </div>
+            </div>
+          
+            <script>
+              var valuesListInstaflow = [
+                {display: "Pruning 5G", fileValue: 5},
+                {display: "Pruning 17G", fileValue: 10},
+                {display: "Pruning 22G", fileValue: 15},
+                {display: "Pruning 45G", fileValue: 20},
+                {display: "Pruning 50G", fileValue: 25},
+                {display: "Pruning 61G", fileValue: 30},
+                {display: "Pruning 65G", fileValue: 35},
+                {display: "Pruning 85G", fileValue: 40}
+              ];
+
+              function showVal_Instaflow(index) {
+                var selectedValue = valuesList_Instaflow[index];
+                document.getElementById("range_Instaflow").innerHTML = selectedValue.display;
+                updateImages_Instaflow(selectedValue.fileValue);
+              }
+
+              function updateImages_Instaflow(fileValue) {
+                document.getElementById("Instaflow_img1").src = preloadedImages_Instaflow["Random"][fileValue].src;
+                document.getElementById("Instaflow_img2").src = preloadedImages_Instaflow["Magnitude"][fileValue].src;
+                document.getElementById("Instaflow_img3").src = preloadedImages_Instaflow["Taylor"][fileValue].src;
+                document.getElementById("Instaflow_img4").src = preloadedImages_Instaflow["Diff-pruning"][fileValue].src;
+                document.getElementById("Instaflow_img5").src = preloadedImages_Instaflow["Skip-net"][fileValue].src;
+              }
+
+              // Preload images
+              var preloadedImages_Instaflow = {};
+              var folders_Instaflow = ["Random", "Magnitude", "Taylor", "Diff-pruning", "Skip-net"];
+              var preloadValues_Instaflow = [5, 10, 15, 20, 25, 30, 35, 40];
+              
+              folders_Instaflow.forEach(function(folder) {
+                preloadedImages_Instaflow[folder] = {};
+                preloadValues_Instaflow.forEach(function(value) {
+                  var img = new Image();
+                  img.src = "static/images/Instaflow/" + folder + "/" + value + ".png";
+                  preloadedImages_Instaflow[folder][value] = img;
+                });
+              });
+
+              // Initialize the images on page load
+              window.onload = function() {
+                showVal(0);
+                showVal_Instaflow(0);
+              }
+            </script>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  
+
 <!-- Paper poster -->
 <!-- <section class="hero is-small is-light">
   <div class="hero-body">
