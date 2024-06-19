@@ -180,35 +180,50 @@
       <div class="column is-four-fifths">
         <div class="content has-text-justified">
           <p>
-            <label for="folderSelect">Choose a folder:</label>
-            <select id="folderSelect" onchange="updateImage()">
-              <option value="Diff-pruning_SDM">Diff-pruning_SDM</option>
-              <option value="Skip-net_SDM">Skip-net_SDM</option>
-              <option value="Taylor_SDM">Taylor_SDM</option>
-              <option value="magnitude_SDM">Magnitude_SDM</option>
-              <option value="random_pruned_SDM">Random_pruned_SDM</option>
-            </select>
-            <br />
             <input id="valR" type="range" min="5" max="50" value="5" step="5" oninput="showVal(this.value)" onchange="showVal(this.value)" />
             <span id="range">5</span>
             <br />
-            <img id="img">
+            <div class="columns is-centered">
+              <div class="column">
+                <p>Diff-pruning_SDM</p>
+                <img id="img1">
+              </div>
+              <div class="column">
+                <p>Skip-net_SDM</p>
+                <img id="img2">
+              </div>
+              <div class="column">
+                <p>Taylor_SDM</p>
+                <img id="img3">
+              </div>
+              <div class="column">
+                <p>Magnitude_SDM</p>
+                <img id="img4">
+              </div>
+              <div class="column">
+                <p>Random_pruned_SDM</p>
+                <img id="img5">
+              </div>
+            </div>
           
             <script>
-              function showVal(newVal){
-                document.getElementById("range").innerHTML=newVal;
-                updateImage();
+              function showVal(newVal) {
+                document.getElementById("range").innerHTML = newVal;
+                updateImages();
               }
 
-              function updateImage() {
-                var folder = document.getElementById("folderSelect").value;
+              function updateImages() {
                 var val = document.getElementById("valR").value;
-                document.getElementById("img").src = "static/images/SDM/" + folder + "/" + val + ".png";
+                document.getElementById("img1").src = "static/images/SDM/Diff-pruning_SDM/" + val + ".png";
+                document.getElementById("img2").src = "static/images/SDM/Skip-net_SDM/" + val + ".png";
+                document.getElementById("img3").src = "static/images/SDM/Taylor_SDM/" + val + ".png";
+                document.getElementById("img4").src = "static/images/SDM/Magnitude_SDM/" + val + ".png";
+                document.getElementById("img5").src = "static/images/SDM/Random_pruned_SDM/" + val + ".png";
               }
 
-              // Initialize the image on page load
+              // Initialize the images on page load
               window.onload = function() {
-                updateImage();
+                updateImages();
               }
             </script>
           </p>
@@ -218,34 +233,6 @@
   </div>
 </section>
 
-  
-<!-- <section class="section hero is-light">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <div class="content has-text-justified">
-          <p>
-            <input id="valR" type="range" min="5" max="50" value="0" step="5" oninput="showVal(this.value)" onchange="showVal(this.value)" />
-            <span id="range">0</span>
-            <br />
-            <img id="img">
-          
-          <script>
-            
-            var val = document.getElementById("valR").value;
-                document.getElementById("range").innerHTML=val;
-                document.getElementById("img").src = "static/images/SDM/Diff-pruning_SDM/"+val + ".png";
-                function showVal(newVal){
-                  document.getElementById("range").innerHTML=newVal;
-                  document.getElementById("img").src = "static/images/SDM/Diff-pruning_SDM/"+newVal+ ".png";
-                }
-          </script>
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
 
 
 
