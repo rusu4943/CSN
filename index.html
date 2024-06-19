@@ -268,7 +268,7 @@
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <div class="content has-text-centered">
-          <h3>Pruning Stable Diffusion CFG with 50 Steps Inference</h3>
+          <h3>Pruning Stable Diffusion CFG with 50 Steps Inference + Classifier-Free Guidance</h3>
           <p>
             <input id="valRCFG" type="range" min="0" max="7" value="0" step="1" oninput="showValCFG(this.value)" onchange="showValCFG(this.value)" />
             <span id="rangeCFG">Pruning 5G</span>
@@ -302,14 +302,14 @@
           
             <script>
               var valuesListCFG = [
-                {display: "Pruning 5G", fileValue: 5},
-                {display: "Pruning 17G", fileValue: 10},
-                {display: "Pruning 22G", fileValue: 15},
-                {display: "Pruning 45G", fileValue: 20},
-                {display: "Pruning 50G", fileValue: 25},
-                {display: "Pruning 61G", fileValue: 30},
-                {display: "Pruning 65G", fileValue: 35},
-                {display: "Pruning 85G", fileValue: 40}
+                {display: "Pruning 10G", fileValue: 5},
+                {display: "Pruning 34G", fileValue: 10},
+                {display: "Pruning 44G", fileValue: 15},
+                {display: "Pruning 90G", fileValue: 20},
+                {display: "Pruning 100G", fileValue: 25},
+                {display: "Pruning 122G", fileValue: 30},
+                {display: "Pruning 130G", fileValue: 35},
+                {display: "Pruning 170G", fileValue: 40}
               ];
 
               function showValCFG(index) {
