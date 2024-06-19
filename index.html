@@ -173,7 +173,53 @@
 <!-- End paper abstract -->
 
 
+
 <section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="content has-text-justified">
+          <p>
+            <label for="folderSelect">Choose a folder:</label>
+            <select id="folderSelect" onchange="updateImage()">
+              <option value="Diff-pruning_SDM">Diff-pruning_SDM</option>
+              <option value="Skip-net_SDM">Skip-net_SDM</option>
+              <option value="Taylor_SDM">Taylor_SDM</option>
+              <option value="magnitude_SDM">Magnitude_SDM</option>
+              <option value="random_pruned_SDM">Random_pruned_SDM</option>
+            </select>
+            <br />
+            <input id="valR" type="range" min="5" max="50" value="5" step="5" oninput="showVal(this.value)" onchange="showVal(this.value)" />
+            <span id="range">5</span>
+            <br />
+            <img id="img">
+          
+            <script>
+              function showVal(newVal){
+                document.getElementById("range").innerHTML=newVal;
+                updateImage();
+              }
+
+              function updateImage() {
+                var folder = document.getElementById("folderSelect").value;
+                var val = document.getElementById("valR").value;
+                document.getElementById("img").src = "static/images/SDM/" + folder + "/" + val + ".png";
+              }
+
+              // Initialize the image on page load
+              window.onload = function() {
+                updateImage();
+              }
+            </script>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  
+<!-- <section class="section hero is-light">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
@@ -199,7 +245,7 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 
 
 
