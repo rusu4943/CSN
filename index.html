@@ -186,11 +186,11 @@
             <div class="columns is-centered">
               <div class="column">
                 <p>Random_pruned_SDM</p>
-                <img id="img5" src="static/images/SDM/Random_pruned_SDM/5.png">
+                <img id="img5" src="static/images/SDM/random_pruned_SDM/5.png">
               </div>
               <div class="column">
                 <p>Magnitude_SDM</p>
-                <img id="img4" src="static/images/SDM/Magnitude_SDM/5.png">
+                <img id="img4" src="static/images/SDM/magnitude_SDM/5.png">
               </div>
               <div class="column">
                 <p>Taylor_SDM</p>
@@ -209,7 +209,7 @@
             <script>
               // Preload images
               var preloadedImages = {};
-              var folders = ["Random_pruned_SDM", "Magnitude_SDM", "Taylor_SDM", "Diff-pruning_SDM", "Skip-net_SDM"];
+              var folders = ["random_pruned_SDM", "magnitude_SDM", "Taylor_SDM", "Diff-pruning_SDM", "Skip-net_SDM"];
               var values = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50];
               
               folders.forEach(function(folder) {
@@ -230,8 +230,8 @@
                 document.getElementById("img1").src = preloadedImages["Diff-pruning_SDM"][value].src;
                 document.getElementById("img2").src = preloadedImages["Skip-net_SDM"][value].src;
                 document.getElementById("img3").src = preloadedImages["Taylor_SDM"][value].src;
-                document.getElementById("img4").src = preloadedImages["Magnitude_SDM"][value].src;
-                document.getElementById("img5").src = preloadedImages["Random_pruned_SDM"][value].src;
+                document.getElementById("img4").src = preloadedImages["magnitude_SDM"][value].src;
+                document.getElementById("img5").src = preloadedImages["random_pruned_SDM"][value].src;
               }
 
               // Initialize the images on page load
