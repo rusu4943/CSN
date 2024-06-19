@@ -173,6 +173,34 @@
 <!-- End paper abstract -->
 
 
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="content has-text-justified">
+          <p>
+            <input id="valR" type="range" min="5" max="50" value="0" step="5" oninput="showVal(this.value)" onchange="showVal(this.value)" />
+            <span id="range">0</span>
+            <br />
+            <img id="img">
+          
+          <script>
+            
+            var val = document.getElementById("valR").value;
+                document.getElementById("range").innerHTML=val;
+                document.getElementById("img").src = "static/images/SDM/Diff-pruning_SDM/"+val + ".png";
+                function showVal(newVal){
+                  document.getElementById("range").innerHTML=newVal;
+                  document.getElementById("img").src = "static/images/SDM/Diff-pruning_SDM/"+newVal+ ".png";
+                }
+          </script>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 
 
