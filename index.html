@@ -180,24 +180,24 @@
       <div class="column is-four-fifths">
         <div class="content has-text-centered">
           <p>
-            <input id="valR" type="range" min="5" max="40" value="5" step="5" oninput="showVal(this.value)" onchange="showVal(this.value)" />
+            <input id="valR" type="range" min="0" max="7" value="0" step="1" oninput="showVal(this.value)" onchange="showVal(this.value)" />
             <span id="range">5G</span>
             <br />
             <div class="columns is-centered">
               <div class="column has-text-centered">
-                <p>Random</p>
+                <p>Random Pruning</p>
                 <img id="img1" src="static/images/SDM/Random_pruned_SDM/5.png" style="width: 200px; height: 200px; object-fit: cover;">
               </div>
               <div class="column has-text-centered">
-                <p>Magnitude</p>
+                <p>Magnitude Pruning</p>
                 <img id="img2" src="static/images/SDM/Magnitude_SDM/5.png" style="width: 200px; height: 200px; object-fit: cover;">
               </div>
               <div class="column has-text-centered">
-                <p>Taylor</p>
+                <p>Taylor Pruning</p>
                 <img id="img3" src="static/images/SDM/Taylor_SDM/5.png" style="width: 200px; height: 200px; object-fit: cover;">
               </div>
               <div class="column has-text-centered">
-                <p>Diff</p>
+                <p>Diff Pruning</p>
                 <img id="img4" src="static/images/SDM/Diff-pruning_SDM/5.png" style="width: 200px; height: 200px; object-fit: cover;">
               </div>
               <div class="column has-text-centered">
@@ -207,26 +207,35 @@
             </div>
           
             <script>
-              var valuesList = [5, 17, 22, 45, 50, 61, 65, 85];
+              var valuesList = [
+                {display: "5G", fileValue: 5},
+                {display: "17G", fileValue: 10},
+                {display: "22G", fileValue: 15},
+                {display: "45G", fileValue: 20},
+                {display: "50G", fileValue: 25},
+                {display: "61G", fileValue: 30},
+                {display: "65G", fileValue: 35},
+                {display: "85G", fileValue: 40}
+              ];
 
               function showVal(index) {
                 var selectedValue = valuesList[index];
-                document.getElementById("range").innerHTML = 'Pruning ' + selectedValue + 'G';
-                updateImages(selectedValue);
+                document.getElementById("range").innerHTML = selectedValue.display;
+                updateImages(selectedValue.fileValue);
               }
 
-              function updateImages(value) {
-                document.getElementById("img1").src = preloadedImages["Random_pruned_SDM"][value].src;
-                document.getElementById("img2").src = preloadedImages["Magnitude_SDM"][value].src;
-                document.getElementById("img3").src = preloadedImages["Taylor_SDM"][value].src;
-                document.getElementById("img4").src = preloadedImages["Diff-pruning_SDM"][value].src;
-                document.getElementById("img5").src = preloadedImages["Skip-net_SDM"][value].src;
+              function updateImages(fileValue) {
+                document.getElementById("img1").src = preloadedImages["Random_pruned_SDM"][fileValue].src;
+                document.getElementById("img2").src = preloadedImages["Magnitude_SDM"][fileValue].src;
+                document.getElementById("img3").src = preloadedImages["Taylor_SDM"][fileValue].src;
+                document.getElementById("img4").src = preloadedImages["Diff-pruning_SDM"][fileValue].src;
+                document.getElementById("img5").src = preloadedImages["Skip-net_SDM"][fileValue].src;
               }
 
               // Preload images
               var preloadedImages = {};
               var folders = ["Random_pruned_SDM", "Magnitude_SDM", "Taylor_SDM", "Diff-pruning_SDM", "Skip-net_SDM"];
-              var preloadValues = [5, 17, 22, 45, 50, 61, 65, 85];
+              var preloadValues = [5, 10, 15, 20, 25, 30, 35, 40];
               
               folders.forEach(function(folder) {
                 preloadedImages[folder] = {};
@@ -248,6 +257,7 @@
     </div>
   </div>
 </section>
+
 
 
 
