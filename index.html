@@ -187,23 +187,23 @@
             <div class="columns is-centered">
               <div class="column has-text-centered">
                 <p>Random</p>
-                <img id="img1" src="static/images/SDM/Random_pruned_SDM/5.png" style="width: 200px; height: 200px; object-fit: cover;">
+                <img id="SD_img1" src="static/images/SDM/Random_pruned_SDM/5.png" style="width: 200px; height: 200px; object-fit: cover;">
               </div>
               <div class="column has-text-centered">
                 <p>Magnitude</p>
-                <img id="img2" src="static/images/SDM/Magnitude_SDM/5.png" style="width: 200px; height: 200px; object-fit: cover;">
+                <img id="SD_img2" src="static/images/SDM/Magnitude_SDM/5.png" style="width: 200px; height: 200px; object-fit: cover;">
               </div>
               <div class="column has-text-centered">
                 <p>Taylor</p>
-                <img id="img3" src="static/images/SDM/Taylor_SDM/5.png" style="width: 200px; height: 200px; object-fit: cover;">
+                <img id="SD_img3" src="static/images/SDM/Taylor_SDM/5.png" style="width: 200px; height: 200px; object-fit: cover;">
               </div>
               <div class="column has-text-centered">
                 <p>Diff</p>
-                <img id="img4" src="static/images/SDM/Diff-pruning_SDM/5.png" style="width: 200px; height: 200px; object-fit: cover;">
+                <img id="SD_img4" src="static/images/SDM/Diff-pruning_SDM/5.png" style="width: 200px; height: 200px; object-fit: cover;">
               </div>
               <div class="column has-text-centered">
                 <p>CSN</p>
-                <img id="img5" src="static/images/SDM/Skip-net_SDM/5.png" style="width: 200px; height: 200px; object-fit: cover;">
+                <img id="SD_img5" src="static/images/SDM/Skip-net_SDM/5.png" style="width: 200px; height: 200px; object-fit: cover;">
               </div>
             </div>
           
@@ -226,11 +226,11 @@
               }
 
               function updateImages(fileValue) {
-                document.getElementById("img1").src = preloadedImages["Random_pruned_SDM"][fileValue].src;
-                document.getElementById("img2").src = preloadedImages["Magnitude_SDM"][fileValue].src;
-                document.getElementById("img3").src = preloadedImages["Taylor_SDM"][fileValue].src;
-                document.getElementById("img4").src = preloadedImages["Diff-pruning_SDM"][fileValue].src;
-                document.getElementById("img5").src = preloadedImages["Skip-net_SDM"][fileValue].src;
+                document.getElementById("SD_img1").src = preloadedImages["Random_pruned_SDM"][fileValue].src;
+                document.getElementById("SD_img2").src = preloadedImages["Magnitude_SDM"][fileValue].src;
+                document.getElementById("SD_img3").src = preloadedImages["Taylor_SDM"][fileValue].src;
+                document.getElementById("SD_img4").src = preloadedImages["Diff-pruning_SDM"][fileValue].src;
+                document.getElementById("SD_img5").src = preloadedImages["Skip-net_SDM"][fileValue].src;
               }
 
               // Preload images
@@ -276,27 +276,27 @@
             <div class="columns is-centered">
               <div class="column has-text-centered">
                 <p>w/o Pruning</p>
-                <img id="imgOrgCFG" src="static/images/SDM_CFG/org.png" style="width: 200px; height: 200px; object-fit: cover;">
+                <img id="SD_imgOrgCFG" src="static/images/SDM_CFG/org.png" style="width: 200px; height: 200px; object-fit: cover;">
               </div>
               <div class="column has-text-centered">
                 <p>Random</p>
-                <img id="img1CFG" src="static/images/SDM_CFG/Random_pruned_SDM/5.png" style="width: 200px; height: 200px; object-fit: cover;">
+                <img id="SD_img1CFG" src="static/images/SDM_CFG/Random_pruned_SDM/5.png" style="width: 200px; height: 200px; object-fit: cover;">
               </div>
               <div class="column has-text-centered">
                 <p>Magnitude</p>
-                <img id="img2CFG" src="static/images/SDM_CFG/Magnitude_SDM/5.png" style="width: 200px; height: 200px; object-fit: cover;">
+                <img id="SD_img2CFG" src="static/images/SDM_CFG/Magnitude_SDM/5.png" style="width: 200px; height: 200px; object-fit: cover;">
               </div>
               <div class="column has-text-centered">
                 <p>Taylor</p>
-                <img id="img3CFG" src="static/images/SDM_CFG/Taylor_SDM/5.png" style="width: 200px; height: 200px; object-fit: cover;">
+                <img id="SD_img3CFG" src="static/images/SDM_CFG/Taylor_SDM/5.png" style="width: 200px; height: 200px; object-fit: cover;">
               </div>
               <div class="column has-text-centered">
                 <p>Diff</p>
-                <img id="img4CFG" src="static/images/SDM_CFG/Diff-pruning_SDM/5.png" style="width: 200px; height: 200px; object-fit: cover;">
+                <img id="SD_img4CFG" src="static/images/SDM_CFG/Diff-pruning_SDM/5.png" style="width: 200px; height: 200px; object-fit: cover;">
               </div>
               <div class="column has-text-centered">
                 <p>CSN</p>
-                <img id="img5CFG" src="static/images/SDM_CFG/Skip-net_SDM/5.png" style="width: 200px; height: 200px; object-fit: cover;">
+                <img id="SD_img5CFG" src="static/images/SDM_CFG/Skip-net_SDM/5.png" style="width: 200px; height: 200px; object-fit: cover;">
               </div>
             </div>
           
@@ -319,11 +319,11 @@
               }
 
               function updateImagesCFG(fileValue) {
-                document.getElementById("img1CFG").src = preloadedImagesCFG["Random_pruned_SDM"][fileValue].src;
-                document.getElementById("img2CFG").src = preloadedImagesCFG["Magnitude_SDM"][fileValue].src;
-                document.getElementById("img3CFG").src = preloadedImagesCFG["Taylor_SDM"][fileValue].src;
-                document.getElementById("img4CFG").src = preloadedImagesCFG["Diff-pruning_SDM"][fileValue].src;
-                document.getElementById("img5CFG").src = preloadedImagesCFG["Skip-net_SDM"][fileValue].src;
+                document.getElementById("SD_img1CFG").src = preloadedImagesCFG["Random_pruned_SDM"][fileValue].src;
+                document.getElementById("SD_img2CFG").src = preloadedImagesCFG["Magnitude_SDM"][fileValue].src;
+                document.getElementById("SD_img3CFG").src = preloadedImagesCFG["Taylor_SDM"][fileValue].src;
+                document.getElementById("SD_img4CFG").src = preloadedImagesCFG["Diff-pruning_SDM"][fileValue].src;
+                document.getElementById("SD_img5CFG").src = preloadedImagesCFG["Skip-net_SDM"][fileValue].src;
               }
 
               // Preload images
