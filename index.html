@@ -355,6 +355,95 @@
 
 
 
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="content has-text-centered">
+          <h3>Pruning LCM with 4 Steps Inference</h3>
+          <p>
+            <input id="valRLCM" type="range" min="0" max="7" value="0" step="1" oninput="showValLCM(this.value)" onchange="showValLCM(this.value)" />
+            <span id="rangeLCM">Pruning 5G</span>
+            <br />
+            <div class="columns is-centered">
+              <div class="column has-text-centered">
+                <p>w/o Pruning</p>
+                <img id="LCM_imgOrg" src="static/images/LCM/org.png" style="width: 200px; height: 200px; object-fit: cover;">
+              </div>
+              <div class="column has-text-centered">
+                <p>Random</p>
+                <img id="LCM_img1" src="static/images/LCM/Random/5.png" style="width: 200px; height: 200px; object-fit: cover;">
+              </div>
+              <div class="column has-text-centered">
+                <p>Magnitude</p>
+                <img id="LCM_img2" src="static/images/LCM/Magnitude/5.png" style="width: 200px; height: 200px; object-fit: cover;">
+              </div>
+              <div class="column has-text-centered">
+                <p>Taylor</p>
+                <img id="LCM_img3" src="static/images/LCM/Taylor/5.png" style="width: 200px; height: 200px; object-fit: cover;">
+              </div>
+              <div class="column has-text-centered">
+                <p>Diff</p>
+                <img id="LCM_img4" src="static/images/LCM/Diff-pruning/5.png" style="width: 200px; height: 200px; object-fit: cover;">
+              </div>
+              <div class="column has-text-centered">
+                <p>CSN</p>
+                <img id="LCM_img5" src="static/images/LCM/Skip-net/5.png" style="width: 200px; height: 200px; object-fit: cover;">
+              </div>
+            </div>
+          
+            <script>
+              var valuesListLCM = [
+                {display: "Pruning 5G", fileValue: 5},
+                {display: "Pruning 17G", fileValue: 10},
+                {display: "Pruning 22G", fileValue: 15},
+                {display: "Pruning 45G", fileValue: 20},
+                {display: "Pruning 50G", fileValue: 25},
+                {display: "Pruning 61G", fileValue: 30},
+                {display: "Pruning 65G", fileValue: 35},
+                {display: "Pruning 85G", fileValue: 40}
+              ];
+
+              function showValLCM(index) {
+                var selectedValue = valuesListLCM[index];
+                document.getElementById("rangeLCM").innerHTML = selectedValue.display;
+                updateImagesLCM(selectedValue.fileValue);
+              }
+
+              function updateImagesLCM(fileValue) {
+                document.getElementById("LCM_img1").src = preloadedImagesLCM["Random"][fileValue].src;
+                document.getElementById("LCM_img2").src = preloadedImagesLCM["Magnitude"][fileValue].src;
+                document.getElementById("LCM_img3").src = preloadedImagesLCM["Taylor"][fileValue].src;
+                document.getElementById("LCM_img4").src = preloadedImagesLCM["Diff-pruning"][fileValue].src;
+                document.getElementById("LCM_img5").src = preloadedImagesLCM["Skip-net"][fileValue].src;
+              }
+
+              // Preload images
+              var preloadedImagesLCM = {};
+              var foldersLCM = ["Random", "Magnitude", "Taylor", "Diff-pruning", "Skip-net"];
+              var preloadValuesLCM = [5, 10, 15, 20, 25, 30, 35, 40];
+              
+              foldersLCM.forEach(function(folder) {
+                preloadedImagesLCM[folder] = {};
+                preloadValuesLCM.forEach(function(value) {
+                  var img = new Image();
+                  img.src = "static/images/LCM/" + folder + "/" + value + ".png";
+                  preloadedImagesLCM[folder][value] = img;
+                });
+              });
+
+              // Initialize the images on page load
+              window.onload = function() {
+                showVal(0);
+                showValLCM(0);
+              }
+            </script>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- Paper poster -->
 <!-- <section class="hero is-small is-light">
