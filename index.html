@@ -185,31 +185,31 @@
             <br />
             <div class="columns is-centered">
               <div class="column">
-                <p>Random_pruned_SDM</p>
-                <img id="img5" src="static/images/SDM/random_pruned_SDM/5.png">
+                <p>Design 1</p>
+                <img id="img1" src="static/images/SDM/Random_pruned_SDM/5.png" style="width: 200px; height: 200px;">
               </div>
               <div class="column">
-                <p>Magnitude_SDM</p>
-                <img id="img4" src="static/images/SDM/magnitude_SDM/5.png">
+                <p>Design 2</p>
+                <img id="img2" src="static/images/SDM/Magnitude_SDM/5.png" style="width: 200px; height: 200px;">
               </div>
               <div class="column">
-                <p>Taylor_SDM</p>
-                <img id="img3" src="static/images/SDM/Taylor_SDM/5.png">
+                <p>Design 3</p>
+                <img id="img3" src="static/images/SDM/Taylor_SDM/5.png" style="width: 200px; height: 200px;">
               </div>
               <div class="column">
-                <p>Diff-pruning_SDM</p>
-                <img id="img1" src="static/images/SDM/Diff-pruning_SDM/5.png">
+                <p>Design 4</p>
+                <img id="img4" src="static/images/SDM/Diff-pruning_SDM/5.png" style="width: 200px; height: 200px;">
               </div>
               <div class="column">
-                <p>Skip-net_SDM</p>
-                <img id="img2" src="static/images/SDM/Skip-net_SDM/5.png">
+                <p>Design 5</p>
+                <img id="img5" src="static/images/SDM/Skip-net_SDM/5.png" style="width: 200px; height: 200px;">
               </div>
             </div>
           
             <script>
               // Preload images
               var preloadedImages = {};
-              var folders = ["random_pruned_SDM", "magnitude_SDM", "Taylor_SDM", "Diff-pruning_SDM", "Skip-net_SDM"];
+              var folders = ["Random_pruned_SDM", "Magnitude_SDM", "Taylor_SDM", "Diff-pruning_SDM", "Skip-net_SDM"];
               var values = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50];
               
               folders.forEach(function(folder) {
@@ -227,11 +227,11 @@
               }
 
               function updateImages(value) {
-                document.getElementById("img1").src = preloadedImages["Diff-pruning_SDM"][value].src;
-                document.getElementById("img2").src = preloadedImages["Skip-net_SDM"][value].src;
+                document.getElementById("img1").src = preloadedImages["Random_pruned_SDM"][value].src;
+                document.getElementById("img2").src = preloadedImages["Magnitude_SDM"][value].src;
                 document.getElementById("img3").src = preloadedImages["Taylor_SDM"][value].src;
-                document.getElementById("img4").src = preloadedImages["magnitude_SDM"][value].src;
-                document.getElementById("img5").src = preloadedImages["random_pruned_SDM"][value].src;
+                document.getElementById("img4").src = preloadedImages["Diff-pruning_SDM"][value].src;
+                document.getElementById("img5").src = preloadedImages["Skip-net_SDM"][value].src;
               }
 
               // Initialize the images on page load
