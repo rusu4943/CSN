@@ -262,7 +262,90 @@
 
 
 
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="content has-text-centered">
+          <h3>Pruning Stable Diffusion with 50 Steps Inference</h3>
+          <p>
+            <input id="valR" type="range" min="0" max="7" value="0" step="1" oninput="showVal(this.value)" onchange="showVal(this.value)" />
+            <span id="range">5G</span>
+            <br />
+            <div class="columns is-centered">
+              <div class="column has-text-centered">
+                <p>Random</p>
+                <img id="img1" src="static/images/SDM_CFG/Random_pruned_SDM/5.png" style="width: 200px; height: 200px; object-fit: cover;">
+              </div>
+              <div class="column has-text-centered">
+                <p>Magnitude</p>
+                <img id="img2" src="static/images/SDM_CFG/Magnitude_SDM/5.png" style="width: 200px; height: 200px; object-fit: cover;">
+              </div>
+              <div class="column has-text-centered">
+                <p>Taylor</p>
+                <img id="img3" src="static/images/SDM_CFG/Taylor_SDM/5.png" style="width: 200px; height: 200px; object-fit: cover;">
+              </div>
+              <div class="column has-text-centered">
+                <p>Diff</p>
+                <img id="img4" src="static/images/SDM_CFG/Diff-pruning_SDM/5.png" style="width: 200px; height: 200px; object-fit: cover;">
+              </div>
+              <div class="column has-text-centered">
+                <p>CSN</p>
+                <img id="img5" src="static/images/SDM_CFG/Skip-net_SDM/5.png" style="width: 200px; height: 200px; object-fit: cover;">
+              </div>
+            </div>
+          
+            <script>
+              var valuesList = [
+                {display: "Pruning 5G", fileValue: 5},
+                {display: "Pruning 17G", fileValue: 10},
+                {display: "Pruning 22G", fileValue: 15},
+                {display: "Pruning 45G", fileValue: 20},
+                {display: "Pruning 50G", fileValue: 25},
+                {display: "Pruning 61G", fileValue: 30},
+                {display: "Pruning 65G", fileValue: 35},
+                {display: "Pruning 85G", fileValue: 40}
+              ];
 
+              function showVal(index) {
+                var selectedValue = valuesList[index];
+                document.getElementById("range").innerHTML = selectedValue.display;
+                updateImages(selectedValue.fileValue);
+              }
+
+              function updateImages(fileValue) {
+                document.getElementById("img1").src = preloadedImages["Random_pruned_SDM"][fileValue].src;
+                document.getElementById("img2").src = preloadedImages["Magnitude_SDM"][fileValue].src;
+                document.getElementById("img3").src = preloadedImages["Taylor_SDM"][fileValue].src;
+                document.getElementById("img4").src = preloadedImages["Diff-pruning_SDM"][fileValue].src;
+                document.getElementById("img5").src = preloadedImages["Skip-net_SDM"][fileValue].src;
+              }
+
+              // Preload images
+              var preloadedImages = {};
+              var folders = ["Random_pruned_SDM", "Magnitude_SDM", "Taylor_SDM", "Diff-pruning_SDM", "Skip-net_SDM"];
+              var preloadValues = [5, 10, 15, 20, 25, 30, 35, 40];
+              
+              folders.forEach(function(folder) {
+                preloadedImages[folder] = {};
+                preloadValues.forEach(function(value) {
+                  var img = new Image();
+                  img.src = "static/images/SDM_CFG/" + folder + "/" + value + ".png";
+                  preloadedImages[folder][value] = img;
+                });
+              });
+
+              // Initialize the images on page load
+              window.onload = function() {
+                showVal(0);
+              }
+            </script>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 
 
