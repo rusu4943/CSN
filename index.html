@@ -186,44 +186,57 @@
             <div class="columns is-centered">
               <div class="column">
                 <p>Diff-pruning_SDM</p>
-                <img id="img1">
+                <img id="img1" src="static/images/SDM/Diff-pruning_SDM/5.png">
               </div>
               <div class="column">
                 <p>Skip-net_SDM</p>
-                <img id="img2">
+                <img id="img2" src="static/images/SDM/Skip-net_SDM/5.png">
               </div>
               <div class="column">
                 <p>Taylor_SDM</p>
-                <img id="img3">
+                <img id="img3" src="static/images/SDM/Taylor_SDM/5.png">
               </div>
               <div class="column">
                 <p>Magnitude_SDM</p>
-                <img id="img4">
+                <img id="img4" src="static/images/SDM/Magnitude_SDM/5.png">
               </div>
               <div class="column">
                 <p>Random_pruned_SDM</p>
-                <img id="img5">
+                <img id="img5" src="static/images/SDM/Random_pruned_SDM/5.png">
               </div>
             </div>
           
             <script>
+              // Preload images
+              var preloadedImages = {};
+              var folders = ["Diff-pruning_SDM", "Skip-net_SDM", "Taylor_SDM", "Magnitude_SDM", "Random_pruned_SDM"];
+              var values = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50];
+              
+              folders.forEach(function(folder) {
+                preloadedImages[folder] = {};
+                values.forEach(function(value) {
+                  var img = new Image();
+                  img.src = "static/images/SDM/" + folder + "/" + value + ".png";
+                  preloadedImages[folder][value] = img;
+                });
+              });
+
               function showVal(newVal) {
                 document.getElementById("range").innerHTML = newVal;
-                updateImages();
+                updateImages(newVal);
               }
 
-              function updateImages() {
-                var val = document.getElementById("valR").value;
-                document.getElementById("img1").src = "static/images/SDM/Diff-pruning_SDM/" + val + ".png";
-                document.getElementById("img2").src = "static/images/SDM/Skip-net_SDM/" + val + ".png";
-                document.getElementById("img3").src = "static/images/SDM/Taylor_SDM/" + val + ".png";
-                document.getElementById("img4").src = "static/images/SDM/Magnitude_SDM/" + val + ".png";
-                document.getElementById("img5").src = "static/images/SDM/Random_pruned_SDM/" + val + ".png";
+              function updateImages(value) {
+                document.getElementById("img1").src = preloadedImages["Diff-pruning_SDM"][value].src;
+                document.getElementById("img2").src = preloadedImages["Skip-net_SDM"][value].src;
+                document.getElementById("img3").src = preloadedImages["Taylor_SDM"][value].src;
+                document.getElementById("img4").src = preloadedImages["Magnitude_SDM"][value].src;
+                document.getElementById("img5").src = preloadedImages["Random_pruned_SDM"][value].src;
               }
 
               // Initialize the images on page load
               window.onload = function() {
-                updateImages();
+                updateImages(5);
               }
             </script>
           </p>
